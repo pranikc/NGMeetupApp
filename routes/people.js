@@ -17,6 +17,7 @@ router.post('/', function(req, res, next) {
 
     var newPerson = req.body;
 
+    console.log(newPerson);
     var callback = function(err) {
         res.send(err);
     }

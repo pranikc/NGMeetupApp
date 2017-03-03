@@ -15,6 +15,7 @@
             }],
             enroll: function () {
                 // subbscribe(What to do when a succes message is recieved, What to do when an error occurs)
+                console.log(this.newUser);
                 this.service.addUser(this.newUser)
                     .subscribe(this.getPeople.bind(this), this.updateError.bind(this));
             },
