@@ -1,0 +1,16 @@
+table tr:nth-of-type(even) {
+    background-color: aquamarine;
+}
+
+table tr:nth-of-type(odd) {
+    background-color: khaki;
+}
+
+table th{
+    background-color: darksalmon;
+}
+
+table {
+    line-height: 2;
+    width: 400px;
+}

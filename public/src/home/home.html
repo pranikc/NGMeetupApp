@@ -1,0 +1,25 @@
+<h1 class="title">Welcome to Meetup</h1>
+<h3>Enter your preferences below</h3>
+Name:<br>
+<input [(ngModel)]="newUser.name" type="text" name="name" placeholder="John Smith">
+<br>Hobby:<br>
+<input [(ngModel)]="newUser.hobby" type="text" name="hobby" placeholder="painting dragons">
+<br>Email<br>
+<input [(ngModel)]="newUser.email" type="text" name="email" placeholder="example@gmail.com">
+<br>Contact  Number<br>
+<input [(ngModel)]="newUser.contactNumber" type="text" name="contact" placeholder="xxx-xxx-xxxx">
+<br><br>
+<button (click)="enroll()">Enroll</button>
+<hr>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Hobby</th>
+    </tr>
+    <tr *ngFor="let user of usersList">
+        <td>{{user.name}}</td>
+        <td>{{user.hobby}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.contactNumber}}</td>
+    </tr>
+</table>
