@@ -14,7 +14,7 @@
 
         transform: function (text)
         {
-            return text + "!!!";
+            return text.hobby.sort();
         }
     });
 }) (window.app || (window.app=={}));
