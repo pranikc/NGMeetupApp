@@ -6,7 +6,7 @@
             templateUrl: './src/home/home.html',
             styleUrls : ['./stylesheets/title.css', './stylesheets/table.css'],
             providers: [ng.http.HTTP_PROVIDERS, app.HomeService],
-
+            pipes: [app.UserSortPipe]
         }).Class({
             constructor: [app.HomeService, function(_service){
                 this.service = _service;

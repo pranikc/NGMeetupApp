@@ -20,7 +20,7 @@ Name:<br>
     </tr>
     <tr *ngFor="let user of usersList">
         <td>{{user.name}}</td>
-        <td>{{user.hobby}}</td>
+        <td>{{user.hobby | sortPipe}}</td>
         <td>{{user.email}}</td>
         <td>{{user.contactNumber}}</td>
     </tr>
