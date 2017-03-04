@@ -12,9 +12,12 @@
 
         },
 
-        transform: function (text)
+        transform: function (list)
         {
-            return text.hobby.sort();
+            var compareTwoUsers = function (person1, person2) {
+                return person1.hobby.localeCompare(person2.hobby);
+            }
+            return list.slice().sort(compareTwoUsers);
         }
     });
 }) (window.app || (window.app=={}));

@@ -18,9 +18,9 @@ Name:<br>
         <th>Email</th>
         <th>Phone Number</th>
     </tr>
-    <tr *ngFor="let user of usersList">
+    <tr *ngFor="let user of usersList | sortPipe">
         <td>{{user.name}}</td>
-        <td>{{user.hobby | sortPipe}}</td>
+        <td>{{user.hobby}}</td>
         <td>{{user.email}}</td>
         <td>{{user.contactNumber}}</td>
     </tr>
