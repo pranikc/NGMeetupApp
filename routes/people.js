@@ -13,6 +13,17 @@ router.get('/', function(req, res, next) {
     person.all(callback);
 });
 
+router.get('/hobbies', function(req,res, next) {
+    var callback = function(err, hobbies) {
+        if (err)
+            res.send('Unable to get the hobbies');
+        else
+            res.send(hobbies);
+    }
+
+    person.getHobbies(callback);
+});
+
 router.post('/', function(req, res, next) {
 
     var newPerson = req.body;

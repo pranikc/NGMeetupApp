@@ -10,6 +10,10 @@ module.exports = {
         db.get().collection(collectionName).find().toArray(callback);
     },
 
+    getHobbies: function(callback) {
+        db.get().collection(collectionName).distinct("hobby",callback);
+    },
+
     add: function(newPerson, callback) {
         var inserted = function(err) {
             if(!err)
