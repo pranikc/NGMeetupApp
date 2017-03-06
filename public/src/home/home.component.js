@@ -12,6 +12,7 @@
                 this.service = _service;
                 this.newUser = {};
                 this.usersList = [];
+                this.hobbiesList = ['Singing', 'Programming', 'Writing']// Create a Mock list containing a list of random hobbies.
             }],
             enroll: function () {
                 // subbscribe(What to do when a succes message is recieved, What to do when an error occurs)
