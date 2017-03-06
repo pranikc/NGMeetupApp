@@ -11,17 +11,19 @@ Name:<br>
 <br><br>
 <button (click)="enroll()">Enroll</button>
 <hr>
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Hobby</th>
-        <th>Email</th>
-        <th>Phone Number</th>
-    </tr>
-    <tr *ngFor="let user of usersList | sortPipe">
-        <td>{{user.name}}</td>
-        <td>{{user.hobby}}</td>
-        <td>{{user.email}}</td>
-        <td>{{user.contactNumber}}</td>
-    </tr>
-</table>
+<div *ngIf="usersList.length !== 0">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Hobby</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </tr>
+        <tr *ngFor="let user of usersList | sortPipe">
+            <td>{{user.name}}</td>
+            <td>{{user.hobby}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.contactNumber}}</td>
+        </tr>
+    </table>
+</div>
