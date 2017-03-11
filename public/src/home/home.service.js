@@ -11,7 +11,12 @@
 
         getAllUsers: function(){
             return this.http.get('/people')
-                .map(this.extractData);
+                            .map(this.extractData);
+        },
+
+        getHobbies: function(){
+            return this.http.get('/people/hobbies')
+                            .map(this.extractData);
         },
 
         extractData: function (response) {

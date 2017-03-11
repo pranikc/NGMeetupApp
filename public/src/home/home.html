@@ -12,7 +12,9 @@ Name:<br>
 <button (click)="enroll()">Enroll</button>
 <hr>
 <div>
-    <select>
+    <select id="selectionChoice">
         <option *ngFor="let hobby of hobbiesList" value = {{hobby}} >{{hobby}}</option>
     </select>
+
+    <button (click)="getUsersForHobby()">Search</button>
 </div>

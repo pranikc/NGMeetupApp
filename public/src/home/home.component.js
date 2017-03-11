@@ -12,7 +12,8 @@
                 this.service = _service;
                 this.newUser = {};
                 this.usersList = [];
-                this.hobbiesList = ['Singing', 'Programming', 'Writing']// Create a Mock list containing a list of random hobbies.
+                this.hobbiesList = []; // Create a Mock list containing a list of random hobbies.
+                this.listOfUsers = [];
             }],
             enroll: function () {
                 // subbscribe(What to do when a succes message is recieved, What to do when an error occurs)
@@ -20,19 +21,38 @@
                 this.service.addUser(this.newUser)
                     .subscribe(this.getPeople.bind(this), this.updateError.bind(this));
             },
+            getUsersForHobby: function() {
+                var selectedValue = document.getElementById("selectionChoice");
+                console.log(selectedValue);
+                for (var count = 0; count < this.usersList.length; count++)
+                {
+                    if (selectedValue === this.usersList[count].hobby.value)
+                    {
+                        this.listOfUsers.push(this.usersList[count]);
+                    }
+                }
+                console.log(this.listOfUsers);
+            },
             getPeople: function () {
                 this.service.getAllUsers()
                     .subscribe(this.updateData.bind(this), this.updateError.bind(this));
             },
+            getHobbies: function() {
+                this.service.getHobbies()
+                    .subscribe(this.updateHobbies.bind(this), this.updateError.bind(this));
+            },
             updateData: function(data){
                 this.usersList = data;
-                console.log(this.usersList);
+            },
+            updateHobbies: function(data){
+                this.hobbiesList = data;
             },
             updateError: function (err) {
                 console.log(err);
             },
             ngOnInit: function() {
                 this.getPeople();
+                this.getHobbies();
             }
 
         });

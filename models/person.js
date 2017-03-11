@@ -20,7 +20,7 @@ module.exports = {
                 callback('person added');
             else
                 callback(err);
-        }
+        };
 
         if(!newPerson || newPerson.name === undefined ||
             newPerson.hobby === undefined || newPerson.email === undefined || newPerson.contactNumber === undefined)
