@@ -12,9 +12,26 @@ Name:<br>
 <button (click)="enroll()">Enroll</button>
 <hr>
 <div>
-    <select id="selectionChoice">
+    <select id="selectionChoice" (change)="getUsersForHobby()">
         <option *ngFor="let hobby of hobbiesList" value = {{hobby}} >{{hobby}}</option>
     </select>
 
-    <button (click)="getUsersForHobby()">Search</button>
+    <div *ngIf="usersList.length !== 0">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+            </tr>
+            <tr *ngFor="let user of usersList | sortPipe">
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.contactNumber}}</td>
+            </tr>
+        </table>
+    </div>
+    <div *ngIf="usersList.length === 0">
+        <br>
+        Please Select a Hobby from the dropdown
+    </div>
 </div>

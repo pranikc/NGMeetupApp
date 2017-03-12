@@ -19,11 +19,12 @@
                 console.log(this.newUser);
                 this.newUser.hobby = this.newUser.hobby.trim().toLowerCase();
                 this.service.addUser(this.newUser)
-                    .subscribe(this.getPeople.bind(this), this.updateError.bind(this));
+                    .subscribe(this.getHobbies.bind(this), this.updateError.bind(this));
+                this.getUsersForHobby();
             },
             getUsersForHobby: function() {
-                var selectedValue = document.getElementById("selectionChoice");
-                console.log(this.usersList.filter(user => selectedValue.value === user.hobby));
+                this.service.getAllUsers()
+                    .subscribe(this.updateDataWithFilter.bind(this), this.updateError.bind(this));
             },
             getPeople: function () {
                 this.service.getAllUsers()
@@ -36,6 +37,10 @@
             updateData: function(data){
                 this.usersList = data;
             },
+            updateDataWithFilter: function(data){
+                var selectedValue = document.getElementById("selectionChoice");
+                this.usersList = data.filter(user => selectedValue.value === user.hobby);
+            },
             updateHobbies: function(data){
                 this.hobbiesList = data;
             },
@@ -43,7 +48,6 @@
                 console.log(err);
             },
             ngOnInit: function() {
-                this.getPeople();
                 this.getHobbies();
             }
 
