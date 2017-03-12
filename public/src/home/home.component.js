@@ -13,25 +13,17 @@
                 this.newUser = {};
                 this.usersList = [];
                 this.hobbiesList = []; // Create a Mock list containing a list of random hobbies.
-                this.listOfUsers = [];
             }],
             enroll: function () {
                 // subbscribe(What to do when a succes message is recieved, What to do when an error occurs)
                 console.log(this.newUser);
+                this.newUser.hobby = this.newUser.hobby.trim().toLowerCase();
                 this.service.addUser(this.newUser)
                     .subscribe(this.getPeople.bind(this), this.updateError.bind(this));
             },
             getUsersForHobby: function() {
                 var selectedValue = document.getElementById("selectionChoice");
-                console.log(selectedValue);
-                for (var count = 0; count < this.usersList.length; count++)
-                {
-                    if (selectedValue === this.usersList[count].hobby.value)
-                    {
-                        this.listOfUsers.push(this.usersList[count]);
-                    }
-                }
-                console.log(this.listOfUsers);
+                console.log(this.usersList.filter(user => selectedValue.value === user.hobby));
             },
             getPeople: function () {
                 this.service.getAllUsers()
